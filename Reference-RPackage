@@ -1,0 +1,70 @@
+Postgre SQL 9.5 (multi join / cross product)
+R3.2.3
+
+1.	Metaphone algorithm
+2.	Fuzzystrmatch contribute libraries (Postgre SQL)
+The fuzzystrmatch module provides several functions to determine similarities and distance between strings.
+Caution : At present, the soundex, metaphone, dmetaphone, and dmetaphone_alt functions do not work well with multibyte encodings (such as UTF-8).
+Metaphone, like Soundex, is based on the idea of constructing a representative code for an input string. Two strings are then deemed similar if they have the same codes.
+This function calculates the metaphone code of an input string:
+metaphone(text source, int max_output_length) returns text
+source has to be a non-null string with a maximum of 255 characters. max_output_length sets the maximum length of the output metaphone code; if longer, the output is truncated to this length.
+
+3.	Topicmodels (R package)
+Provides an interface to the C code for Latent Dirichlet Allocation (LDA) models and Correlated Topics Models (CTM) by David M. Blei and co-authors and the C++ code for fitting LDA models using Gibbs sampling by Xuan-Hieu Phan and co-authors.
+perplexity
+Methods for Function perplexity
+posterior-methods
+Determine posterior probabilities
+CTM
+Correlated Topic Model
+distHellinger
+Compute Hellinger distance
+ldaformat2dtm
+Transform data from and for use with the
+logLik-methods
+Methods for Function logLik
+TopicModel-class
+Virtual class "TopicModel"
+TopicModelcontrol-class
+Different classes for controlling the estimation of topic models
+terms_and_topics
+
+LDA
+Latent Dirichlet Allocation
+AssociatedPress
+Associated Press data
+build_graph
+Construct the adjacency matrix for a topic graph
+
+
+4.	Stringdist voice (R package)
+Approximate String Matching and String Distance Functions
+Implements an approximate string matching version of R's native 'match' function. Can calculate various string distances based on edits (Damerau-Levenshtein, Hamming, Levenshtein, optimal sting alignment), qgrams (q- gram, cosine, jaccard distance) or heuristic metrics (Jaro, Jaro-Winkler). An implementation of soundex is provided as well. Distances can be computed between character vectors while taking proper care of encoding or between integer vectors representing generic sequences. This package is built for speed and runs in parallel by using 'openMP'. An API for C or C++ is exposed as well.
+
+5.	Vagan veg-dist function (R package)
+6.	Randomforest (R package)
+Breiman and Cutler's Random Forests for Classification and Regression
+Classification and regression based on a forest of trees using random inputs, based on Breiman (2001)
+
+7.	Xgboost (R package) extreme gradient boosting
+Extreme Gradient Boosting
+Extreme Gradient Boosting, which is an efficient implementation of the gradient boosting framework from Chen & Guestrin (2016) <doi:10.1145/2939672.2939785>. This package is its R interface. The package includes efficient linear model solver and tree learning algorithms. The package can automatically do parallel computation on a single machine which could be more than 10 times faster than existing gradient boosting packages. It supports various objective functions, including regression, classification and ranking. The package is made to be extensible, so that users are also allowed to define their own objectives easily.
+
+8.	Kernlab (R package) besseldot kernel
+
+9.	Glmnet (R package) binomial , glmnet function
+A Class To Represent A Taxonomic Binomial
+Fit A GLM With Lasso Or Elasticnet Regularization
+Fit a generalized linear model via penalized maximum likelihood. The regularization path is computed for the lasso or elasticnet penalty at a grid of values for the regularization parameter lambda. Can deal with all shapes of data, including very large sparse data matrices. Fits linear, logistic and multinomial, poisson, and Cox regression models.
+
+Details
+The sequence of models implied by lambda is fit by coordinate descent. For family="gaussian" this is the lasso sequence if alpha=1, else it is the elasticnet sequence. For the other families, this is a lasso or elasticnet regularization path for fitting the generalized linear regression paths, by maximizing the appropriate penalized log-likelihood (partial likelihood for the "cox" model). Sometimes the sequence is truncated before nlambda values of lambda have been used, because of instabilities in the inverse link functions near a saturated fit. glmnet(...,family="binomial") fits a traditional logistic regression model for the log-odds. glmnet(...,family="multinomial") fits a symmetric multinomial model, where each class is represented by a linear model (on the log-scale). The penalties take care of redundancies. A two-class "multinomial"model will produce the same fit as the corresponding "binomial" model, except the pair of coefficient matrices will be equal in magnitude and opposite in sign, and half the "binomial" values. Note that the objective function for "gaussian" is1/2RSS/nobs+λ∗penalty,and for the other models it is−loglik/nobs+λ∗penalty.Note also that for "gaussian", glmnet standardizes y to have unit variance (using 1/n rather than 1/(n-1) formula) before computing its lambda sequence (and then unstandardizes the resulting coefficients); if you wish to reproduce/compare results with other software, best to supply a standardized y. The coefficients for any predictor variables with zero variance are set to zero for all values of lambda. The latest two features in glmnet are the family="mgaussian" family and the type.multinomial="grouped" option for multinomial fitting. The former allows a multi-response gaussian model to be fit, using a "group -lasso" penalty on the coefficients for each variable. Tying the responses together like this is called "multi-task" learning in some domains. The grouped multinomial allows the same penalty for thefamily="multinomial" model, which is also multi-responsed. For both of these the penalty on the coefficient vector for variable j is(1−α)/2||βj||22+α||βj||1.When alpha=1 this is a group-lasso penalty, and otherwise it mixes with quadratic just like elasticnet. A small detail in the Cox model: if death times are tied with censored times, we assume the censored times occurred just before the death times in computing the Breslow approximation; if users prefer the usual convention ofafter, they can add a small number to all censoring times to achieve this effect.
+
+
+10.	Stats R core package hclust function
+Fast Hierarchical, Agglomerative Clustering Of Dissimilarity Data
+This function implements hierarchical clustering with the same interface as hclust from the stats package but with much faster algorithms.
+
+
+
