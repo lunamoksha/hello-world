@@ -1,0 +1,176 @@
+
+![Rohde & Schwarz](https://cdn.rohde-schwarz.com/pws/inred/image/layout/rohde-schwarz.min.svg)
+
+--------------------------------------------------------------------------------
+
+# Business Trip - EsMain'18
+
+## Markdown
+
+ * what is it (DEMO:eyes:)
+  * Markdown is a lightweight markup language with plain text formatting syntax:
+    [Wikipedia](https://en.wikipedia.org/wiki/Markdown)
+ * how can I use it
+  * its used by default for some extensions (eg .md / .mkd files) in Git
+  * use it for deeper but not so deep documentation stored with the code in Git
+ * one possibility would be to have one eg readme.md for each component
+   with architects and general component specific coding guidelines;
+   this is currently in discussion, not final yet
+
+## Git Operation with FW-Scripts
+
+  * scripts instead of plain git
+   * not a goal to convert our developers to git experts;
+     experience showed that very less developers know eg cleartool;
+   * instead we want to have good features, bugfixes;
+     developers shall concentrate on C++ code instead of SCM
+  * scripts to reproduce solutions easily
+   * tool experts (in eg git, python, etc.) shall provide easy solutions;
+     these can be used by everyone which are not experts in tools but for FW;
+     :family:
+   * this can be provided by all teams around the world,
+     what then makes us more efficient
+  * multi repositories without submodules / subtrees
+   * to have a flexible way of extending current process easily
+    * max size for a repository at RuS is currently 10 GB; we reduced our size from 2.5 GB to 1.3 GB;
+      1TD is currently using a big single repos with over 10 GB with makes problems
+   * to provide a platform which can be optimized for each use case;
+     eg do some want extra repos to be available but other just a few;
+   * to be able to handle EC repos as well :thumbsup:
+  * to be able to automate nearly everything, so we can use night time too
+
+### Setup of a new Branch / View
+
+Note: Currently, till final release in April, use branch __experimental__
+
+   * execute action 'create Git working copy'
+    * Munich fresh repo download time: ???
+    * Beaverton fresh repo download time: ~10 minutes
+    * Seoul fresh bare repo download time: ???
+    * Fleet fresh bare repo download time: ???
+    * second time working copy creation should be about 2 minutes
+   * explain directory structure on a git level (DEMO:eyes:)
+    * explain concept with bare and working copy
+    * explain ...view directory 
+    * explain private branch concept
+
+general side notes:
+
+   * execute and upload a __clean__ test whenever possible :thumbsup:
+   * use night time to setup views on a daily basis :clap:
+
+### Deliver Changes
+
+   * DEMO:eyes: show status dialog of mode ConfTest
+   * DEMO:eyes: show commit dialog ~
+   * whats next ... L1TC ... as usual :vertical_traffic_light:
+
+### Multi View Management
+
+   * no subst, no symlink anymore
+    * DEMO:eyes: select another view with dropdown and __apply__
+    * BUT: maximum base path length and maximum lengh of pathes in ES-MAIN;
+      about 30 and 200 characters
+   * DEMO:eyes: remove views with FW-Scripts only
+    * the branch names are registered in the bare repo which needs to
+      be removed again
+
+### Toos and Versions
+
+  * recommended for general (independent of Git) command line operation: __Cmder__ :white_check_mark:
+  * GUI Tools:
+   * web interface :white_check_mark:
+   * VS2017 Plugin :white_check_mark:
+   * Atlassian Sourcetree (used by 1TD as default GUI Git client, 
+     eventually comes to Bulb), recommended :white_check_mark:
+   * Tortoise Git (only one with Explorer context menu support)
+   * NOTE: all gui tools have their flaws, like crashing or locking themself out :anger:
+  * currently Win10 1803 (Bulb) not compatible with 'Git for Windows' (Bulb);
+    the 'CAP Develop' branch of Bulb already uses a newer verions of Git to
+    fix that
+
+## Management with GitLab EE
+
+  * merge requests 
+   * created by L1TC after successful test :vertical_traffic_light:
+   * to document deliveries for later investigations
+  * approvers :see_no_evil: :hear_no_evil: :speak_no_evil:
+   * why:
+     to get a common C++ look'n'feel with our code base 
+     and with that a better architecture;
+     but also to get general architectural decisions faster in effect
+   * who ... architects;
+     currently LLs are talking to team members to find architects;
+   * it does __not__ replace reviews :exclamation:
+   * (merge request) labels to show what needs to be done
+  * push rules :eyes:
+   * commits
+   * branch names
+   * tag names
+  * per user access settings
+   * for handling merge requests
+   * for handling tag creation
+   * ...
+
+## L1TC - current state 
+
+  * testing of Git branches is currently in development for L1TC 
+  * to make sure CC development does not break Git development :skull:
+   * could be that in near future L1TC rejects deliveries becuase of that
+
+## Build Performance
+
+  * in MUC all developers have IncrediBuild (IB) now
+   * build time is about 30-40 minutes with that (aka 30+ minutes) :relaxed:
+   * a recent bugfix from Warga / Englhardt brought back 30+ to L1TC too :eyes:
+  * new PCs with 2 NVMe drives in it have about 45 minutes build time w/o IB :muscle:
+  * older PCs with 2 SATA drives have about 55 minutes build time :relieved:
+  * setup time with CC is currently in MUC about 20-30 minutes
+   * with Git this will change to 2 mintes from second time on
+  * everyone with build time over 55 minutes shoudl definitely do something
+    to improve that :warning:
+
+## EsMain CCB
+
+  * What is it: Change Control Board
+   * weekly meeting of device PLs 
+   * deciding over unassigned tasks / defects
+    * see [CCB RTC Dashboard](https://jazz.rsint.net/ccm/web/projects/1ES-Tools#action=com.ibm.team.dashboard.viewDashboard&team=ES-MAIN&tab=_16)
+   * also includes discussion and information excange about current EsMain topics 
+  
+## Organigram
+
+see also [1E Tool Experts](http://wiki.rsint.net/1es_sw/index.php/1E_Tool_Experts)
+
+### Git4EsMain
+
+   * M.Niedl (PL)
+   * F.Englhardt (starts in december full time: deputy / developer)
+   * C.Neumair (with 1 month in '18 and one in '19: developer)
+   * EXT: M.Kupfer (developer)
+   * EXT: A.Schmid (developer, only till 2018-10)
+
+### FW-Scripts
+
+for EsMain
+
+   * M.Niedl (PL / developer / support)
+   * F.Englhardt (deputy 1 / developer / support )
+   * P.Maier (deputy 2 / developer / support)
+   * J.Jungnickel (developed some specific features)
+   * M.Warga (developed some specific features)
+   * C.Neumair (developed some specific features)
+   * J.Zwack (developed some specific features)
+   * T.Tricker (developed some specific features)
+   * V.Jones (developed some specific features)
+   * T.Ruster (support)
+   * S.Hagen-Figueroa (support)
+
+for ConfTest, Git Version
+
+   * J.Skrotzky (PL / developer)
+
+for GuiTest, Git Version (currently on ice to favor Git4EsMain)
+
+   * J.Skrotzky (PL)
+   * EXT M.Baade (developer)
